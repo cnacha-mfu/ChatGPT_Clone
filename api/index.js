@@ -9,7 +9,7 @@ const ObjectService = require("@operandinc/sdk").ObjectService;
 // Open AI Configuration
 const configuration = new Configuration({
   organization: process.env.OPENAI_ORG_KEY,
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
@@ -27,14 +27,14 @@ app.use(require("morgan")("dev"));
 // Primary Open AI Route
 app.post("/", async (req, res) => {
   const { message } = req.body;
-
+  console.log(message)
   const runIndex = async () => {
     const operand = operandClient(
       ObjectService,
-      process.env.OPERAND_KEY,
+      "6lp0exovccwddoc1mo92gyhrk7sktb1u2c3g",
       "https://api.operand.ai",
       {
-        [indexIDHeaderKey]: process.env.OPERAND_INDEX_KEY,
+        [indexIDHeaderKey]: "pq0c67bu3t0q",
       }
     );
 
@@ -54,13 +54,14 @@ app.post("/", async (req, res) => {
     }
   };
 
+
   let operandSearch = await runIndex(message);
 
-  const basePromptPrefix = `This is a conversation between the YouTuber Siraj Raval and a stranger.\nRelevant information that Siraj knows:\n${operandSearch}`;
-
+  const basePromptPrefix = `This is a conversation between Nacha and a stranger.\nRelevant information that Nacha knows:\n${operandSearch}`;
+  console.log(basePromptPrefix);
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `${basePromptPrefix}\n\nStranger:${message}\n\nSiraj:`,
+    prompt: `${basePromptPrefix}\n\nStranger:${message}\n\nNacha:`,
     max_tokens: 256,
     temperature: 0.7,
   });
