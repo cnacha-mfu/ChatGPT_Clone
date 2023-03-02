@@ -9,7 +9,7 @@ const ObjectService = require("@operandinc/sdk").ObjectService;
 // Open AI Configuration
 const configuration = new Configuration({
   organization: process.env.OPENAI_ORG_KEY,
-  apiKey: "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",
+  apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxx",
 });
 
 const openai = new OpenAIApi(configuration);

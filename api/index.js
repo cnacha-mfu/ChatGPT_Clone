@@ -9,7 +9,7 @@ const ObjectService = require("@operandinc/sdk").ObjectService;
 // Open AI Configuration
 const configuration = new Configuration({
   organization: process.env.OPENAI_ORG_KEY,
-  apiKey: "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",
+  apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 });
 
 const openai = new OpenAIApi(configuration);
@@ -31,10 +31,10 @@ app.post("/", async (req, res) => {
   const runIndex = async () => {
     const operand = operandClient(
       ObjectService,
-      "6lp0exovccwddoc1mo92gyhrk7sktb1u2c3g",
+      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "https://api.operand.ai",
       {
-        [indexIDHeaderKey]: "pq0c67bu3t0q",
+        [indexIDHeaderKey]: "xxxxxxxxxxxxxxxxxxxx",
       }
     );
 
